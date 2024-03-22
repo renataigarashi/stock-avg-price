@@ -1,6 +1,7 @@
 // src/entities/Stock.ts
 
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, JoinTable, ManyToMany, PrimaryGeneratedColumn } from 'typeorm';
+import { UserEntity } from './User';
 
 @Entity({name: 'tb_stock'})
 export class StockEntity {
@@ -18,4 +19,8 @@ export class StockEntity {
 
   @Column()
   purchaseDate: Date;
+
+  @ManyToMany(() => UserEntity)
+  @JoinTable({name: 'tb_users_stocks'})
+  users: UserEntity[]; 
 }
