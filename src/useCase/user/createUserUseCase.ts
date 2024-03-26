@@ -1,7 +1,6 @@
 import { IUser } from "../../intefaces/IUser";
 import { IUserRepository } from "../../intefaces/IUserRepository";
 
-
 export class CreateUserUseCase {
   constructor(private userRepository: IUserRepository) {}
 
